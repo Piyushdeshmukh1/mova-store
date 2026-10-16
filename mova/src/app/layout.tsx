@@ -16,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: { default: seo.defaultTitle, template: seo.titleTemplate },
     description: seo.description,
     applicationName: site.brandName,
-    icons: site.faviconUrl ? { icon: site.faviconUrl, apple: site.faviconUrl } : { icon: "/favicon.svg" },
+    icons: site.faviconUrl ? { icon: site.faviconUrl, shortcut: site.faviconUrl, apple: site.faviconUrl } : { icon: "/favicon.svg" },
   };
 }
 

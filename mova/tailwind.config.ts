@@ -32,6 +32,7 @@ const config: Config = {
         slidein: { from: { transform: "translateX(100%)" }, to: { transform: "none" } },
         slideinleft: { from: { transform: "translateX(-100%)" }, to: { transform: "none" } },
         fade: { from: { opacity: "0" }, to: { opacity: "1" } },
+        wiggle: { "0%,100%": { transform: "rotate(0deg) scale(1)" }, "25%": { transform: "rotate(-6deg) scale(1.06)" }, "75%": { transform: "rotate(6deg) scale(1.06)" } },
       },
       animation: {
         rise: "rise .9s cubic-bezier(.2,.7,.2,1) both",
@@ -42,6 +43,7 @@ const config: Config = {
         slidein: "slidein .45s cubic-bezier(.2,.7,.2,1) both",
         slideinleft: "slideinleft .45s cubic-bezier(.2,.7,.2,1) both",
         fade: "fade .3s ease both",
+        wiggle: "wiggle .5s ease-in-out",
       },
     },
   },

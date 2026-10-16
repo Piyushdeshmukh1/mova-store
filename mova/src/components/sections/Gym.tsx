@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { productsFromSource } from "@/lib/catalog";
-import { ProductCard } from "@/components/store/ProductCard";
 import { SmartImage } from "@/components/store/SmartImage";
 import { Reveal } from "@/components/store/Reveal";
 import { CmsIcon } from "@/components/store/Icon";
@@ -8,8 +6,7 @@ import { CmsIcon } from "@/components/store/Icon";
 
 type C = Record<string, any>;
 
-export async function Gym({ c }: { c: C }) {
-  const items = await productsFromSource(c.source || "cat:gym-towels", Number(c.limit) || 3);
+export function Gym({ c }: { c: C }) {
   const features: C[] = c.features || [];
   const tape = features.map((f) => f.title).filter(Boolean);
   return (
@@ -59,12 +56,6 @@ export async function Gym({ c }: { c: C }) {
             )}
           </div>
         </div>
-
-        {items.length > 0 && (
-          <div className="mt-24 grid grid-cols-2 gap-x-4 gap-y-10 md:gap-x-6 lg:grid-cols-3">
-            {items.map((p, i) => <Reveal key={p.id} delay={i * 80} className={i === 2 ? "col-span-2 mx-auto w-1/2 min-w-[240px] lg:col-span-1 lg:mx-0 lg:w-full lg:min-w-0" : ""}><ProductCard p={p} tone="dark" /></Reveal>)}
-          </div>
-        )}
       </div>
     </section>
   );
